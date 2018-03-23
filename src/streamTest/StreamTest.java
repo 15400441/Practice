@@ -1,7 +1,9 @@
 package streamTest;
 
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 
@@ -24,10 +26,26 @@ public class StreamTest {
 		
 		
 		
+		Predicate<Fruit> yellowF=( fruit)->{return "yellow".equals(fruit.getColor());};
+		List<Fruit> yellowFruit=fruits.stream().filter(yellowF).collect(Collectors.toList());
+		List<Fruit> yellowFruit1=new LinkedList();
+		fruits.stream().forEach(f->{
+			if(yellowF.test(f)){
+				yellowFruit1.add(f);
+			}
+		});
+		
+		
+		
+		
+		
+		
 		System.out.println(redFruit);
 		System.out.println(allRed);
 		System.out.println(allColors);
 		System.out.println(combinFruit);
+		System.out.println(yellowFruit);
+		System.out.println(yellowFruit1);
 		
 	}
 

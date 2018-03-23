@@ -3,10 +3,10 @@ package observableTest;
 import java.util.Observable;
 import java.util.Observer;
 
-public class ApplyConfig implements Observer {
+public class View implements Observer {
 	private String config;
 	//private Observable observable;
-	public ApplyConfig(String config) {
+	public View(String config) {
 		//this.observable=o;
 		this.config=config;
 	}
@@ -28,13 +28,13 @@ public class ApplyConfig implements Observer {
 	
 	public static void main(String[] args) {
 		
-		ApplyConfig applyConfig=new ApplyConfig("init config");
+		View view=new View("init config");
 		
 		
-		FetchConfig fetchConfig=new FetchConfig();
-		fetchConfig.addObserver(applyConfig);
+		Model model=new Model();
+		model.addObserver(view);
 		
-		fetchConfig.change();
+		model.change();
 		
 		
 	}

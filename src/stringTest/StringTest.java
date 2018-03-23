@@ -11,6 +11,11 @@ public class StringTest {
 		String s1="ab";
 		String s2="a";
 		
+		String exchange="HK";
+		String currency=null;
+		String result=String.format("More than one record for same isin code is found. but since no exchange or currency information provided in FIX Msg, order will be rejected. exchange=<%s> currency=<%s> ",exchange,currency);
+		System.out.println(result);
+		
 		
 		String string="agb	ggg";
 		System.out.println(Arrays.asList(string.split("[b]")));
@@ -45,8 +50,10 @@ public class StringTest {
 		System.out.println(s1==s3);
 		System.out.println(s1.equals(s3));
 		
-		new StringTest().test(new String("a"));
+		new StringTest().test("a");
 		
+		
+		testTrim();
 		
 	}
 	
@@ -54,6 +61,22 @@ public class StringTest {
 	
 	void test(String a){
 		System.out.println("a".equals(a));
+		System.out.println("a"==a);
+		
+		
+		String c="c";
+		String c1="c";
+		System.out.println(c==c1);
+	}
+	
+	
+	
+	static void testTrim(){
+		String a="    abc     ";
+		System.out.println(a.length());
+		System.out.println(a.trim().length());
+		
+		
 	}
 	
 	
